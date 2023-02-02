@@ -13,14 +13,17 @@
                             <div class="mb-3">
                                 <label for="">Total Pertandingan</label>
                                 <input type="number" value="{{ old('tPer') }}" class="form-control" autocomplete="off" name="tPer" id="">
+                                @error('tPer') <p class="mb-0 mt-2">{{$message}}</p> @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="">Total Winrate </label>
-                                <input type="number" class="form-control" autocomplete="off" name="tWr" id="">
+                                <input type="float" value="{{ old('tWr') }}" class="form-control" autocomplete="off" name="tWr" id="">
+                                @error('tWr') <p class="mb-0 mt-2">{{$message}}</p> @enderror
                             </div>
                             <div class="">
                                 <label for="">Winrate Yang Diinginkan </label>
-                                <input type="number" class="form-control" autocomplete="off" name="reqWr" id="">
+                                <input type="float" value="{{ old('reqWr') }}" class="form-control" autocomplete="off" name="reqWr" id="">
+                                @error('reqWr') <p class="mb-0 mt-2">{{$message}}</p> @enderror
                             </div>
                             <p class="mb-0 pt-2"> @if(SESSION('data')) {{SESSION('data')}} @endif </p>
                             <button class="btn btn-primary w-100 mt-3">Hasil</button>

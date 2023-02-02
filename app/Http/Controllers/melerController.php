@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\wrRequest;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Redirect;
+use Symfony\Component\Console\Input\Input;
 
 class melerController extends Controller
 {
@@ -27,7 +30,7 @@ class melerController extends Controller
         return view('wr.index');
     }
 
-    public function cekwr(Request $request)
+    public function cekwr(wrRequest  $request)
     {
         $text1 = 'Kamu memerlukan sekitar ';
         $text2 = ' Win Tanpa Lose Untuk Mendapatkan Winrate ';
@@ -36,7 +39,8 @@ class melerController extends Controller
         $tWr = $request->tWr;
         $reqWr = $request->reqWr;
         
-        // rumus 
+
+                // rumus 
         $tWin = $tPer * ($tWr / 100);
         $tLose = $tPer - $tWin;
         $calcWr = 100 - $reqWr;
@@ -45,12 +49,25 @@ class melerController extends Controller
         $finalCalc = $calcLR - $tPer;
         $total = round($finalCalc);
 
-        // $username = $request->old('tPer');
+        if($tPer % 1 != 0){
+            return redirect('/winrate')->with('data', 'Total Pertandingan Harus Bilangan Bulat');
+        }
+        if($reqWr >= 100 OR $tWr > 100){
+            return redirect('/winrate')->with('data', 'WR nya kegedean masbro');
+        }    
+        if($tWr > $reqWr){
+            return redirect('/winrate')->with('data', 'WR lu kegedean Masbro ');
+        }
+
+        
+        
+        return redirect('/winrate')->with('data', $text1 . $total . $text2 . $reqWr . '%')->withInput();
+        // Redirect::back()->withInput(Input::all());
 
 
 
-        $tw = $request->tPer + $request->tWr;
-        return redirect('/winrate')->with('data', $text1 . $total . $text2 . $reqWr . '%');
+
+
         
     }
 }   
