@@ -40,28 +40,35 @@ class melerController extends Controller
         $reqWr = $request->reqWr;
         
 
-                // rumus 
-        $tWin = $tPer * ($tWr / 100);
-        $tLose = $tPer - $tWin;
-        $calcWr = 100 - $reqWr;
-        $sumWr = 100 / $calcWr;
-        $calcLR = $tLose * $sumWr;
-        $finalCalc = $calcLR - $tPer;
-        $total = round($finalCalc);
 
         if($tPer % 1 != 0){
-            return redirect('/winrate')->with('data', 'Total Pertandingan Harus Bilangan Bulat');
+            return redirect('/winrate')->with('data', 'Total Pertandingan Harus Bilangan Bulat')->withInput();
         }
-        if($reqWr >= 100 OR $tWr > 100){
-            return redirect('/winrate')->with('data', 'WR nya kegedean masbro');
+        if($tWr == 100){
+            return redirect('/winrate')->with('data', 'Mau Pamer Masbro?')->withInput();
         }    
-        if($tWr > $reqWr){
-            return redirect('/winrate')->with('data', 'WR lu kegedean Masbro ');
+        if($reqWr == 100){
+            return redirect('/winrate')->with('data', 'Mana Bisa Masbro')->withInput();
+        }    
+        if($reqWr > 100 OR $tWr > 100){
+            return redirect('/winrate')->with('data', 'WR nya kegedean masbro')->withInput();
+        }    
+        if($tWr > $reqWr){  
+            return redirect('/winrate')->with('data', 'WR lu kegedean Masbro ')->withInput();
         }
 
-        
-        
-        return redirect('/winrate')->with('data', $text1 . $total . $text2 . $reqWr . '%')->withInput();
+
+            
+            // rumus 
+            $tWin = $tPer * ($tWr / 100);
+            $tLose = $tPer - $tWin;
+            $calcWr = 100 - $reqWr;
+            $sumWr = 100 / $calcWr;
+            $calcLR = $tLose * $sumWr;
+            $finalCalc = $calcLR - $tPer;
+            $total = round($finalCalc);
+            
+            return redirect('/winrate')->with('data', $text1 . $total . $text2 . $reqWr . '%')->withInput();
         // Redirect::back()->withInput(Input::all());
 
 
