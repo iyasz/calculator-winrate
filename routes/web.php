@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\indexController;
 use App\Http\Controllers\melerController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,8 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+Route::get('/', [indexController::class, 'index']);
+
+Route::get('/searchnickname', function () {
+    return view('nickname.index');
 });
 
 Route::get('/store', [melerController::class, 'index']);
+
+Route::get('/winrate', [melerController::class, 'winrate']);
+
+Route::post('/cekwr', [melerController::class, 'cekwr']);

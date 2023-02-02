@@ -1,0 +1,33 @@
+@extends('layout.mainlayout')
+
+@section('title', 'Winrate')
+
+@section('content')
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card mt-5">
+                    <div class="card-body">
+                        <form action="/cekwr" method="post">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="">Total Pertandingan</label>
+                                <input type="number" value="{{ old('tPer') }}" class="form-control" autocomplete="off" name="tPer" id="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="">Total Winrate </label>
+                                <input type="number" class="form-control" autocomplete="off" name="tWr" id="">
+                            </div>
+                            <div class="">
+                                <label for="">Winrate Yang Diinginkan </label>
+                                <input type="number" class="form-control" autocomplete="off" name="reqWr" id="">
+                            </div>
+                            <p class="mb-0 pt-2"> @if(SESSION('data')) {{SESSION('data')}} @endif </p>
+                            <button class="btn btn-primary w-100 mt-3">Hasil</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
