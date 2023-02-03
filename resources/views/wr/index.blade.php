@@ -3,9 +3,6 @@
 @section('title', 'Winrate')
 
 @section('content')
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-6">
                 <div class="card mt-5">
                     <div class="card-body">
                         <form action="/cekwr" method="post">
@@ -30,7 +27,4 @@
                         </form>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
 @endsection

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\indexController;
 use App\Http\Controllers\melerController;
+use App\Http\Controllers\topupController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,7 @@ Route::get('/store', [melerController::class, 'index']);
 Route::get('/winrate', [melerController::class, 'winrate']);
 
 Route::post('/cekwr', [melerController::class, 'cekwr']);
+
+// top up 
+Route::get('/topup', [topupController::class, 'index']);
+// end top up 
