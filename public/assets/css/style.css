@@ -63,10 +63,6 @@ body {
     display: none !important;
 }
 
-.hero-hover{
-    opacity: 0%;
-}
-
 .hero-hover .backdrop-hero {
     position: absolute;
     width: 100%;
@@ -74,9 +70,8 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-
 .main-hero:hover .hero-hover {
-    opacity: 100%;
+    display: block !important;
     transition: 0.3s;
 }
 
@@ -106,6 +101,17 @@ body {
 .hero-side-content::-webkit-scrollbar-thumb {
     background: var(--color-text-primary);
     border-radius: 15px;
+}
+
+.plus-icon a {
+    position: absolute;
+    right: 60px;
+    bottom: 30px;
+    background-color: var(--color-bg-dark-2);
+    padding: 10px 15px;
+    border-radius: 50%;
+    color: var(--color-text-primary);
+    font-size: 1.2em;
 }
 
 /* end dashboard  */

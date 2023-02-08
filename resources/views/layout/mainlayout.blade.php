@@ -14,6 +14,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@300;400;600;700&family=Poppins:wght@300;500;600&display=swap"   rel="stylesheet">
 
+    {{-- icon  --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
@@ -29,9 +31,10 @@
       <div class="col-lg-8 col-md-6 col-12  ">
           @yield('content')
       </div>
+
     </div>
   </div>
-
+  
     {{-- <nav class="navbar py-2 navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
           <a class="navbar-brand" href="/">MELERS</a>

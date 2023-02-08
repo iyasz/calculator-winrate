@@ -19,8 +19,10 @@ class melerController extends Controller
         // if(is_null($response)){
         //     $response = 'tidak ada';
         // }
+        
 
-        $apiMeler = "https://api.dazelpro.com/mobile-legends/hero";
+        $apiMeler = Http::get("https://api.dazelpro.com/mobile-legends/hero")->json();
+        dd($apiMeler);
 
         return view('nickname.hasil', ['meler' => $response]);
     }

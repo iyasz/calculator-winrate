@@ -18,33 +18,37 @@
         </div>
         <div class="container-fluid mt-4">
             <div class="row">
-                @for ($i = 0; $i < 20; $i++)
+                {{-- @for ($i = 0; $i < 20; $i++) --}}
+                @foreach ($hero as $dataHero)
                     <div class="col-lg-4 col-md-6 col-12 mb-4">
+                            
                         <a class="main-hero text-decoration-none position-relative" href="">
                             <div style="background-image: linear-gradient(rgba(0, 0, 0, 0),
-                    rgba(0, 0, 0, 0.4)) ,url('https://random.imagecdn.app/v1/image?width=500&height=150&category=anime&format=image')"
+                    rgba(0, 0, 0, 0.4)) ,url('{{$dataHero['hero_avatar']}}')"
                                 class="card-hero ">
                                 <div class="pt-5 ms-2 main-text-hero">
-                                    <h4 class="text-white ff-a-600 mb-0 pt-4">Aamon</h4>
-                                    <h6 class="ff-a-400">Assasin</h6>
+                                    <h4 class="text-white ff-a-600 mb-0 pt-4">{{$dataHero['hero_name']}}</h4>
+                                    <h6 class="ff-a-400">{{$dataHero['hero_role']}}</h6>
                                 </div>
-                                <div class="hero-hover">
+                                <div class="hero-hover d-none">
                                     <div class="backdrop-hero"></div>
                                     <div class="ms-2 position-absolute content-hover">
-                                        <h4 class="text-white ff-a-600 mb-0 pt-3">Aamon</h4>
-                                        <h6 class="ff-a-400">Assasin</h6>
-                                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, in.
-                                            Lorem ipsum dolor sit </p>
+                                        <h4 class="text-white ff-a-600 mb-0 pt-3">{{$dataHero['hero_name']}}</h4>
+                                        <h6 class="ff-a-400">{{$dataHero['hero_role']}}</h6>
+                                        <p class="mb-0">Hero Dengan Role {{$dataHero['hero_role']}} Dengan Specially {{$dataHero['hero_specially']}} </p>
                                     </div>
                                 </div>
                             </div>
                         </a>
                     </div>
-                @endfor
+                    @endforeach
+                {{-- @endfor --}}
             </div>
         </div>
     </div>
     <div class="plus-icon">
-        <i class="bi bi-plus"></i>
+        <a href="/addhero">
+            <i class="bi bi-plus"></i>
+        </a>
     </div>
 @endsection
