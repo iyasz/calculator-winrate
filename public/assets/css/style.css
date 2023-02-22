@@ -18,7 +18,7 @@
 }
     /* font-family: 'Poppins', sans-serif; */
 
-body {
+body, .modal-body {
     background-color: var(--color-bg-dark);
 }
 
@@ -48,6 +48,10 @@ body {
 .header-hero a:hover {
     color: var(--color-yellow-primary);
     transition: 0.4s;
+}
+
+.active {
+    color: var(--color-yellow-primary) !important;
 }
 
 .card-hero {
@@ -103,15 +107,19 @@ body {
     border-radius: 15px;
 }
 
-.plus-icon a {
+.plus-icon button {
     position: absolute;
-    right: 60px;
+    right: 50px;
     bottom: 30px;
     background-color: var(--color-bg-dark-2);
     padding: 10px 15px;
     border-radius: 50%;
     color: var(--color-text-primary);
     font-size: 1.2em;
+}
+
+.modal-header, .modal-footer {
+    background-color: var(--color-bg-dark-2);
 }
 
 /* end dashboard  */
