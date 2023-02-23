@@ -16,4 +16,9 @@ class indexController extends Controller
         // dd($hero);
         return view('index', ['hero' => $hero]);
     }
+
+    public function detail($id)
+    {
+        // $hero = 
+    }
 }

@@ -22,6 +22,8 @@ Route::get('/searchnickname', function () {
     return view('nickname.index');
 });
 
+Route::get('/hero/detail/{id}', [indexController::class, 'detail']);
+
 Route::get('/store', [melerController::class, 'index']);
 
 Route::get('/winrate', [melerController::class, 'winrate']);

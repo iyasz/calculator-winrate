@@ -4,7 +4,7 @@
     --color-bg-dark: #2D3238;
     --color-bg-dark-2: #212529;
     --color-text-primary: #d4d4d4;
-    --color-yellow-primary: #e9ab03;
+    --color-yellow-primary: #f1b40c;
 }
 
 .ff-a-400 {
@@ -120,6 +120,28 @@ body, .modal-body {
 
 .modal-header, .modal-footer {
     background-color: var(--color-bg-dark-2);
+    border: 0 !important;
+}
+
+.form-control, .form-select {
+    box-shadow: none !important;
+}
+.form-hero {
+    background: var(--color-bg-dark-2);
+    border: solid 0.5px var(--color-text-primary) !important;
+    color: var(--color-yellow-primary);   
+    letter-spacing: 0.6px; 
+    font-size: 18px;
+}
+
+.form-hero.hero{
+    color: #fff !important;
+    font-size: 22px;
+}
+
+.form-hero:focus {
+    background: var(--color-bg-dark-2) !important;
+    color: var(--color-yellow-primary);
 }
 
 /* end dashboard  */

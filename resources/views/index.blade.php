@@ -40,66 +40,86 @@
             <div class="row">
                 @foreach ($hero as $dataHero)
                     <div class="col-lg-4 col-md-6 col-12 mb-4">
-                            
-                        <a class="main-hero text-decoration-none position-relative" href="">
+
+                        <a class="main-hero text-decoration-none position-relative" href="/hero/detail/{{$dataHero['hero_name']}}">
                             <div style="background-image: linear-gradient(rgba(0, 0, 0, 0),
-                    rgba(0, 0, 0, 0.4)) ,url('{{$dataHero['hero_avatar']}}')"
-                                class="card-hero ">
+                    rgba(0, 0, 0, 0.4)) ,url('')" class="card-hero ">
                                 <div class="pt-5 ms-2 main-text-hero">
-                                    <h4 class="text-white ff-a-600 mb-0 pt-4">{{$dataHero['hero_name']}}</h4>
-                                    <h6 class="ff-a-400">{{$dataHero['hero_role']}}</h6>
+                                    <h4 class="text-white ff-a-600 mb-0 pt-4">{{ $dataHero['hero_name'] }}</h4>
+                                    <h6 class="ff-a-400">{{ $dataHero['hero_role'] }}</h6>
                                 </div>
                                 <div class="hero-hover d-none">
                                     <div class="backdrop-hero"></div>
                                     <div class="ms-2 position-absolute content-hover">
-                                        <h4 class="text-white ff-a-600 mb-0 pt-3">{{$dataHero['hero_name']}}</h4>
-                                        <h6 class="ff-a-400">{{$dataHero['hero_role']}}</h6>
-                                        <p class="mb-0">Hero Dengan Role {{$dataHero['hero_role']}} Dengan Specially {{$dataHero['hero_specially']}} </p>
+                                        <h4 class="text-white ff-a-600 mb-0 pt-3">{{ $dataHero['hero_name'] }}</h4>
+                                        <h6 class="ff-a-400">{{ $dataHero['hero_role'] }}</h6>
+                                        <p class="mb-0">Hero Dengan Role {{ $dataHero['hero_role'] }} Dengan Specially
+                                            {{ $dataHero['hero_specially'] }} </p>
                                     </div>
                                 </div>
                             </div>
                         </a>
                     </div>
-                    @endforeach
+                @endforeach
                 {{-- @endfor --}}
             </div>
         </div>
     </div>
     <div class="plus-icon">
-        <button class="border-0" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >
+        <button class="border-0" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             <i class="bi bi-plus"></i>
         </button>
     </div>
 
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-3 text-white" id="staticBackdropLabel">Tambah Hero</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-3 text-white ff-a-600" id="staticBackdropLabel">Tambah Hero</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="/hero/store" method="post">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+
+                                <div class="mb-3 mt-2">
+                                    <label class="text-white mb-2 ff-a-400">Nama Hero :</label>
+                                    <input type="text" autocomplete="off" name="nama" class="form-control rounded-0 ff-a-400 form-hero hero" id="">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="mb-3 mt-2">
+                                    <label class="text-white mb-2 ff-a-400">Role Hero</label>
+                                    <select class="form-select rounded-0 ff-a-400 form-hero" aria-label="Default select example">
+                                        <option selected disabled> --- </option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                      </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="mb-3 mt-2">
+                                    <label class="text-white mb-2 ff-a-400">Specially Hero :</label>
+                                    <select class="form-select rounded-0 ff-a-400 form-hero" >
+                                        <option selected disabled> --- </option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                      </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
             </div>
-            <form action="/hero/store" method="post">
-                @csrf
-            <div class="modal-body">
-                    <div class="mb-3 mt-2">
-                        <label class="text-white mb-2">Nama Hero :</label>
-                        <input type="text" name="nama" class="form-control" id="">
-                    </div>
-                    <div class="mb-3 mt-2">
-                        <label class="text-white mb-2">Role Hero</label>
-                        <input type="text" name="nama" class="form-control" id="">
-                    </div>
-                    <div class="mb-3 mt-2">
-                        <label class="text-white mb-2">Specially Hero :</label>
-                        <input type="text" name="nama" class="form-control" id="">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Understood</button>
-                </div>
-            </form>
-          </div>
         </div>
-      </div>
+    </div>
 @endsection
