@@ -14,6 +14,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@300;400;600;700&family=Poppins:wght@300;500;600&display=swap"   rel="stylesheet">
 
+    {{-- select2  --}}
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     {{-- icon  --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
@@ -23,13 +27,14 @@
 
   <div class="container-fluid">
     <div class="row justify-content-center">
-      <div class="col-lg-4 col-md-6 col-12 d-lg-block d-md-block d-none ">
+      <div class="col-lg-4 col-md-6 col-12 d-lg-block d-md-block d-none p-0 ">
         <div class="sidebar  w-100 rounded-1">
           <img src="" alt="">
         </div>
       </div>
-      <div class="col-lg-8 col-md-6 col-12  ">
+      <div class="col-lg-8 col-md-6 col-12 p-0">
           @yield('content')
+          
       </div>
 
     </div>

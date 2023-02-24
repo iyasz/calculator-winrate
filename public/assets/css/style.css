@@ -1,7 +1,7 @@
 
 
 :root {
-    --color-bg-dark: #2D3238;
+    --color-bg-dark: #2d3238;
     --color-bg-dark-2: #212529;
     --color-text-primary: #d4d4d4;
     --color-yellow-primary: #f1b40c;
@@ -55,7 +55,6 @@ body, .modal-body {
 }
 
 .card-hero {
-    background: var(--color-bg-dark-2);
     height: 140px;
     object-fit: fill;
     background-size: cover;
@@ -63,8 +62,24 @@ body, .modal-body {
     /* filter: brightness(90%); */
 }
 
+.detail-header-hero {
+    height: 240px;
+    background-position: 0px 0px ;
+    object-fit: fill;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .main-hero:hover .main-text-hero {
     display: none !important;
+}
+
+.yellow-primary {
+    color: var(--color-yellow-primary);
+}
+
+.white-primary {
+    color: var(--color-text-primary);
 }
 
 .hero-hover .backdrop-hero {
@@ -142,6 +157,18 @@ body, .modal-body {
 .form-hero:focus {
     background: var(--color-bg-dark-2) !important;
     color: var(--color-yellow-primary);
+}
+
+.detail-content {
+    padding: 0px !important ;
+}
+
+.title-detail h1 {
+    font-size: 3em ;
+}
+
+.fs-6 {
+    font-size: 0.8em !important;
 }
 
 /* end dashboard  */

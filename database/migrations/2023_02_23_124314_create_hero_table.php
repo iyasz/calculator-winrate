@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('hero', function (Blueprint $table) {
             $table->id();
             $table->string('nama', 250);
-            $table->string('role_id', 250);
+            // $table->string('role_id', 250);
             $table->string('avatar_id', 250)->nullable();
             $table->string('deskripsi', 250)->nullable();
             // $table->timestamps();

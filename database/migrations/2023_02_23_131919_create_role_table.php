@@ -15,9 +15,7 @@ return new class extends Migration
     {
         Schema::create('role', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('hero_id')->nullable();
             $table->string('nama', 200)->nullable();
-            // $table->timestamps();
         });
     }
 

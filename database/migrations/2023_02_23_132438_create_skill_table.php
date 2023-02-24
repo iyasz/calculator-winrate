@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('hero_id')->nullable();
             $table->string('nama', 200)->nullable();
+            $table->text('deskripsi')->nullable();
             // $table->timestamps();
         });
     }
