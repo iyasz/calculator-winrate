@@ -107,17 +107,17 @@ body, .modal-body {
     color: var(--color-yellow-primary);
 }
 
-.hero-side-content {
+.hero-side-content, .detail-content {
     /* height: 3000px; */
     height: 100vh !important;
     overflow: auto !important;
 }
 
-.hero-side-content::-webkit-scrollbar {
+.hero-side-content::-webkit-scrollbar, .detail-content::-webkit-scrollbar {
     width: 7px;
 }
 
-.hero-side-content::-webkit-scrollbar-thumb {
+.hero-side-content::-webkit-scrollbar-thumb, .detail-content::-webkit-scrollbar-thumb {
     background: var(--color-text-primary);
     border-radius: 15px;
 }
@@ -169,6 +169,63 @@ body, .modal-body {
 
 .fs-6 {
     font-size: 0.8em !important;
+    letter-spacing: 0.3px;
+}
+
+.bg-dark-primary {
+    background: var(--color-bg-dark-2) !important;
+}
+
+.card {
+    background: var(--color-bg-dark-2) !important;
+}
+
+.btn-top-fixed {
+    z-index: 99999;
+    top: 20px;
+}
+
+.btn-top-fixed.delete {
+    right: 7.2%;
+    background: #892924;
+}
+
+@media screen and (min-width: 992px) {
+    .btn-top-fixed.back {
+        right: 60%;
+    }
+    .btn-top-fixed.setting {
+        right: 10%;
+    }
+}
+/* 768 */
+@media screen and (max-width: 991px) {
+    .btn-top-fixed.back {
+        right: 40%;
+    }
+    .btn-top-fixed.setting {
+        right: 11.5%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .btn-top-fixed.back {
+        right: 85%;
+    }
+    .btn-top-fixed.setting {
+        right: 17%;
+    }
+}
+
+.swal-title {
+    margin: 0px;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 28px;
+  }
+
+.swal-footer {
+    text-align: center;
 }
 
 /* end dashboard  */

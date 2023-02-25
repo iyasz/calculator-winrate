@@ -29,7 +29,8 @@ class indexController extends Controller
     public function detail($id)
     {
         $hero = hero::find($id);
-        return view('hero.detail', ['hero' => $hero]);
+        $skill = skill::get()->where('hero_id', $hero->id);
+        return view('hero.detail', ['hero' => $hero, 'skill' => $skill]);
     }
 
     public function store(Request $request)
@@ -54,5 +55,16 @@ class indexController extends Controller
         ]);
 
         return redirect('/');
+    }
+
+    public function remove($id)
+    {
+        $hero = hero::find($id);
+        $skill = skill::where('hero_id', $id)->delete();
+        $speciallity = specially::where('hero_id', $id)->delete();
+        $hero->delete();
+
+        return redirect('/');
+        // dd($hero);
     }
 }

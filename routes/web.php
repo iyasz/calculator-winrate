@@ -23,6 +23,9 @@ Route::get('/searchnickname', function () {
 });
 
 Route::get('/hero/detail/{id}', [indexController::class, 'detail']);
+
+Route::get('/hero/{id}', [indexController::class, 'remove']);
+
 Route::post('/hero/store', [indexController::class, 'store']);
 
 Route::get('/store', [melerController::class, 'index']);
