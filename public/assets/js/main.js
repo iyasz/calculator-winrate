@@ -17,6 +17,7 @@ $('#deleteBtn').on('click', function(){
         dangerMode: true,
         cancel: true,
         confirm: true,
+        className: "bg-dark-primary",
         buttons: ["Cancel", "Remove"],
         title: "Remove Hero?",
       });

@@ -4,6 +4,7 @@
     --color-bg-dark: #2d3238;
     --color-bg-dark-2: #212529;
     --color-text-primary: #d4d4d4;
+    --color-dark-red: #892924;
     --color-yellow-primary: #f1b40c;
 }
 
@@ -135,7 +136,7 @@ body, .modal-body {
 
 .modal-header, .modal-footer {
     background-color: var(--color-bg-dark-2);
-    border: 0 !important;
+    border-color: var(--color-bg-dark);
 }
 
 .form-control, .form-select {
@@ -181,13 +182,13 @@ body, .modal-body {
 }
 
 .btn-top-fixed {
-    z-index: 99999;
+    z-index: 9;
     top: 20px;
 }
 
 .btn-top-fixed.delete {
     right: 7.2%;
-    background: #892924;
+    background: var(--color-dark-red);
 }
 
 @media screen and (min-width: 992px) {
@@ -222,7 +223,26 @@ body, .modal-body {
     font-size: 30px;
     font-weight: bold;
     margin-bottom: 28px;
+    color: var(--color-yellow-primary);
   }
+
+.btn.btn-danger {
+    background: var(--color-dark-red);
+    border: 0;
+}
+
+.form-hero.text-area {
+    height: 130px;
+}
+
+/* .form-hero.text-area.skill {
+    color: ;
+} */
+
+.swal-text {
+    color: var(--color-text-primary);
+    font-size: 14px;
+}
 
 .swal-footer {
     text-align: center;

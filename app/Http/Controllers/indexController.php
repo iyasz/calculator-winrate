@@ -8,19 +8,21 @@ use App\Models\role;
 use App\Models\skill;
 use App\Models\specially;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
 class indexController extends Controller
 {
     public function index()
     {
-        $hero = Http::get("https://api.dazelpro.com/mobile-legends/hero")->json();
+        // $hero = Http::get("https://api.dazelpro.com/mobile-legends/hero")->json();
         
-        $hero = $hero['hero'];
+        // $hero = $hero['hero'];
 
         $heroes = hero::all();
         // dd($hero);
         $role = role::get();
+        // $speciallity = specially::get()->where('hero_id', $heroes->id)->first();
         // $speciallity = specially::select('nama')->where('hero_id', $heroes->id)->first();
         // dd($speciallity);
         return view('index', ['hero' => $heroes, 'role' => $role]);
@@ -30,7 +32,11 @@ class indexController extends Controller
     {
         $hero = hero::find($id);
         $skill = skill::get()->where('hero_id', $hero->id);
-        return view('hero.detail', ['hero' => $hero, 'skill' => $skill]);
+        $speciallity = specially::get()->where('hero_id', $hero->id)->first();
+        // dd($speciallity);
+        $role = role::get();
+        // dd($role);
+        return view('hero.detail', ['hero' => $hero, 'skill' => $skill, 'role' => $role, 'speciallity' => $speciallity]);
     }
 
     public function store(Request $request)
@@ -66,5 +72,42 @@ class indexController extends Controller
 
         return redirect('/');
         // dd($hero);
+    }
+
+    public function update(Request $req, $id)
+    {
+        $hero = hero::find($id);
+        
+        $hero->update([
+            'role_id' => $req->role_id,
+            'deskripsi' => $req->deskripsi,
+        ]);
+
+        $speciallity = specially::where('hero_id', $id)->update([
+            'nama' => ucfirst(strtolower($req->specially)),
+        ]);
+
+
+        $skill = skill::where('hero_id', $id);
+        
+        foreach($skill as $skill_loop ){
+            $skill_loop->update([
+                'nama' => $req->nama_skill,
+                'deskripsi' => $req->deskripsi_skill,
+            ]);            
+        }
+        
+        // $names = $req->input('nama_skill');
+        // $deskripsi = $req->input('deskripsi_skill');
+
+        // foreach($names as $key => $name) {
+        //     DB::table('skill')->insert([
+        //         'nama' => $name,
+        //         'deskripsi' => $deskripsi[$key]
+        //     ]);
+        // }
+        
+
+        return redirect('/hero/detail/'.$id);
     }
 }

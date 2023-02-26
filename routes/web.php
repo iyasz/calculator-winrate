@@ -28,6 +28,8 @@ Route::get('/hero/{id}', [indexController::class, 'remove']);
 
 Route::post('/hero/store', [indexController::class, 'store']);
 
+Route::put('/hero/{id}', [indexController::class, 'update']);
+
 Route::get('/store', [melerController::class, 'index']);
 
 Route::get('/winrate', [melerController::class, 'winrate']);

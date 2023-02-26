@@ -76,7 +76,6 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-3 text-white ff-a-600" id="staticBackdropLabel">Tambah Hero</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="/hero/store" method="post">
                     @csrf
