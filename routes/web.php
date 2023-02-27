@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\authController;
 use App\Http\Controllers\indexController;
 use App\Http\Controllers\melerController;
 use App\Http\Controllers\topupController;
@@ -39,3 +40,10 @@ Route::post('/cekwr', [melerController::class, 'cekwr']);
 // top up 
 Route::get('/topup', [topupController::class, 'index']);
 // end top up 
+
+// auth 
+
+Route::get('/auth/login', [authController::class, 'login']);
+Route::get('/auth/register', [authController::class, 'register']);
+
+// end auth 
