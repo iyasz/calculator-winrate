@@ -22,7 +22,12 @@ class authController extends Controller
         if(Auth::attempt($validated)){
             $request->session()->regenerate();
 
-            return redirect()->intended('/');
+            if(Auth::user()->multirole_id != 1){
+                return redirect()->intended('/topup');
+            }else{
+                return redirect()->intended('/');
+            }
+
         }
 
         return back()->withErrors([

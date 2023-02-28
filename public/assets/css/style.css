@@ -108,17 +108,16 @@ body, .modal-body {
     color: var(--color-yellow-primary);
 }
 
-.hero-side-content, .detail-content {
-    /* height: 3000px; */
+.hero-side-content {
     height: 100vh !important;
     overflow: auto !important;
 }
 
-.hero-side-content::-webkit-scrollbar, .detail-content::-webkit-scrollbar {
+.hero-side-content::-webkit-scrollbar {
     width: 7px;
 }
 
-.hero-side-content::-webkit-scrollbar-thumb, .detail-content::-webkit-scrollbar-thumb {
+.hero-side-content::-webkit-scrollbar-thumb {
     background: var(--color-text-primary);
     border-radius: 15px;
 }
@@ -158,10 +157,6 @@ body, .modal-body {
 .form-hero:focus {
     background: var(--color-bg-dark-2) !important;
     color: var(--color-yellow-primary);
-}
-
-.detail-content {
-    padding: 0px !important ;
 }
 
 .title-detail h1 {

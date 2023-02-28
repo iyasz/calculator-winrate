@@ -3,7 +3,7 @@
 @section('title', 'Detail Hero')
 
 @section('content')
-    <div class="detail-content">
+    <div class="hero-side-content">
         <div style="background-image: linear-gradient(rgba(0, 0, 0, 0),
         rgba(45, 50, 56, 1)) ,url('{{$hero->avatar_id}}')" class="detail-header-hero">
         </div>
