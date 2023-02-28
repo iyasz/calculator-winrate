@@ -172,8 +172,22 @@ body, .modal-body {
     background: var(--color-bg-dark-2) !important;
 }
 
+.bg-dark-primary2 {
+    background: var(--color-bg-dark) !important;
+}
+
 .card {
     background: var(--color-bg-dark-2) !important;
+}
+
+.card-diamond p:nth-child(1) {
+    font-size: 12px;
+}
+
+.card-diamond p:nth-child(2) {
+    font-size: 10.4px;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
 }
 
 .btn-top-fixed {

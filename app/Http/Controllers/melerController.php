@@ -33,8 +33,6 @@ class melerController extends Controller
         $tPer = $request->tPer;
         $tWr = $request->tWr;
         $reqWr = $request->reqWr;
-        
-
 
         if($tPer % 1 != 0){
             return redirect('/winrate')->with('data', 'Total Pertandingan Harus Bilangan Bulat')->withInput();
